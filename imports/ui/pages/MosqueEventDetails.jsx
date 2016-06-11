@@ -52,6 +52,8 @@ numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.pa
 
 
 
+
+
     return(
     	<div>
 	      <h1>{event.name}</h1>
