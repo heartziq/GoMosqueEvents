@@ -23,6 +23,11 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 		return Events.findOne(this.props.eventId)
 	}
 
+	removeEvent(){
+		Meteor.call('removeEvent', this.props.eventId)
+			FlowRouter.go('/mosqueDashboard');
+	}
+
   render(){
   	event = this.event()
 
@@ -44,6 +49,10 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 	      <p>{needParticipants} | {needVolunteers} | {gender}</p> 
 
 	      <p>{event.description}</p>
+
+	      <button className="btn" onClick={this.removeEvent.bind(this)}>Delete</button>
+	      <button className="btn">Update</button>
+
       	</div>
     )
   }

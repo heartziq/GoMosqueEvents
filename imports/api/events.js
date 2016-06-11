@@ -18,7 +18,7 @@ Meteor.methods({
   // EXAMPLE:
   addEvents(name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
-
+    
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -39,5 +39,8 @@ gender) {
       mosqueId: Meteor.userId(),           // _id of logged in user
       mosqueName: Meteor.user().profile.name  // username of logged in user
     });
+  },
+  removeEvent(eventId){
+    Events.remove(eventId)
   }
 });
