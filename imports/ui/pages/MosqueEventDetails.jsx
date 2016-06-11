@@ -48,6 +48,8 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
 numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.participants.length}</span>
 
+
+
     return(
     	<div>
 	      <h1>{event.name}</h1>
