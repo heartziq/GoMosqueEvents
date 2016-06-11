@@ -5,7 +5,9 @@ const MosqueLayout = ({content}) => (
   <div>
     <MosqueNav />
 
-    {content()}
+    <div className="container">
+    	{content()}
+    </div>
   </div>
 );
 

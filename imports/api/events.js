@@ -8,7 +8,7 @@ export const Events = new Mongo.Collection('events');
 if (Meteor.isServer) {
   //declare all publish relating to the collection here
   //EXAMPLE:
-  Meteor.publish('events', function tasksPublication() {
+  Meteor.publish('allEvents', function tasksPublication() {
     return Events.find();
   });
 }

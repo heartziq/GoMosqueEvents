@@ -5,7 +5,9 @@ const Layout = ({content}) => (
   <div>
     <Nav />
 
-    {content()}
+    <div className="container">
+    	{content()}
+    </div>
   </div>
 );
 
