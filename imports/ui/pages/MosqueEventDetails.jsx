@@ -52,7 +52,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   			<div className="row">
       			<div className="col s12">
         			<div className="card-panel">
-        				<h1> Participants</h1>
+        				<h3> Participants</h3>
 						<Participants participants={event.participants} eventName={event.name} />
         			</div>
       			</div>
@@ -67,9 +67,9 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   		volunteerCard = (
 
   			<div className="row">
-      			<div className="col s12">
-        			<div className="card-panel">
-        				<h1> Volunteers</h1>
+      			<div className="col s12 hoverable">
+        			<div className="card-panel ">
+        				<h3> Volunteers</h3>
 						<Participants participants={event.participants} eventName={event.name} />
         			</div>
       			</div>
@@ -87,12 +87,12 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
         			<div className="card-panel">
         				<h2>{event.name}</h2>
         				<p>{event.thedate}</p>
-				        <p>{needParticipants} | {needVolunteers} | {gender}</p>
+				        <p>{needParticipants} &nbsp; {needVolunteers} &nbsp; {gender}</p>
 				        <p>{event.description}</p>
 				        <div className="right-align">
-				        	<a href={`/MosqueEventUpdate/${event._id}`} className="btn">Update</a>
+				        	<a href={`/MosqueEventUpdate/${event._id}`} className="btn green darken-2">Update</a>
 	          				<span className="marginSides"></span>
-	        				<button className="btn red" onClick={this.removeEvent.bind(this)}>Delete</button>
+	        				<button className="btn red darken-2" onClick={this.removeEvent.bind(this)}>Delete</button>
         				</div>
         			</div>
       			</div>
