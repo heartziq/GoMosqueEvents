@@ -35,8 +35,8 @@ function becauseAuthenticated(context, redirect){
   }
 }
 
-FlowRouter.triggers.enter([isAuthenticated], {except: ["home", "login", "register"]});
-FlowRouter.triggers.enter([becauseAuthenticated], {only: ["home", "login", "register"]})
+FlowRouter.triggers.enter([isAuthenticated], {except: ["home", "login", "register", "mosqueLogin", "mosqueRegister"]});
+FlowRouter.triggers.enter([becauseAuthenticated], {only: ["home", "login", "register", "mosqueLogin", "mosqueRegister"]})
 
 FlowRouter.route('/', {
   action: function(){
