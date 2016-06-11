@@ -39,8 +39,13 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 
     return(
     	<div>
-      		<h1>Upcoming Events</h1>
+      		<h2>Upcoming Events</h2>
       		<MosqueEventsAll events={events}/>
+          <div className="fixed-action-btn containedFAB">
+            <a className="btn-floating btn-large green darken-2" href="/mosqueEventForm">
+              <i className="large material-icons ">add</i>
+            </a>
+          </div>
       	</div>
     )
   }

@@ -42,3 +42,12 @@
 .marginSides{
   margin-right: 20px
 }
+
+
+@media only screen and (min-width: 500px) {
+    .containedFAB{
+      bottom: 45px; 
+      right: 170px;
+    }
+}
+
