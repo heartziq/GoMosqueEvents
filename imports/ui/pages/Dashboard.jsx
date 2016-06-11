@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {Component} from 'react';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-export default class Dashboard extends React.Component{
+export default class Dashboard extends TrackerReact(Component){
   componentDidMount(){
     document.title = "Quick Plate | Dashboard"
   }
 
   render(){
     return(
-      <h1>A board so fast, it's called it the <strong>dash</strong>board.</h1>
+      <h1>Events Participated/Volunteered by ME</h1>
     )
   }
 }

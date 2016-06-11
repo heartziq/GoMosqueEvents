@@ -4,6 +4,8 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react'
 import {Events} from '../../api/events.js'
 
 import Participants from '../MosqueEventDetails/Participants.jsx'
+import Volunteers from '../MosqueEventDetails/Volunteers.jsx'
+
 
 export default class MosqueEventDetails extends TrackerReact(React.Component){
 	constructor(){
@@ -62,6 +64,7 @@ numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.pa
           <a href={`/MosqueEventUpdate/${event._id}`} className="green-text text-lighten-2">Update Event</a>
 
 				<Participants participants={event.participants} eventName={event.name} />
+				<Volunteers volunteers={event.volunteers} eventName={event.name}/>
 
       	</div>
     )

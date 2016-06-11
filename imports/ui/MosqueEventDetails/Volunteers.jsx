@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import SingleParticipant from './SingleParticipant.jsx';
+import SingleVolunteers from './SingleVolunteers.jsx';
 
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-export default class Participants extends TrackerReact(Component) {
+export default class Volunteers extends TrackerReact(Component) {
   constructor(){
   super();
 
@@ -15,7 +15,7 @@ export default class Participants extends TrackerReact(Component) {
   }
   }
 
-  // participantDetails(){
+  // volunteersDetails(){
   //   participantsId = this.props.participantsId
   //   participantsDetails =[]
   //   {participantsId.map((participantId)=>{
@@ -29,20 +29,20 @@ export default class Participants extends TrackerReact(Component) {
   // }
 
   render(){
-    participants = this.props.participants;
-    if(!participants)
+    volunteers = this.props.volunteers;
+    if(!volunteers)
       return <span> loading </span>
 
-  //console.log("fe", participants)
+  //console.log("fe", volunteers)
 
     var stringOfMail = 'mailto:';
     return (
       <div className="row">
-        <h3>this participants</h3>
-          {participants.map((singleEmail)=>{
+        <h3>this volunteers</h3>
+          {volunteers.map((singleEmail)=>{
             console.log(singleEmail)
             stringOfMail += singleEmail + ','
-            return <SingleParticipant email={singleEmail} key={singleEmail} eventName={this.props.eventName}/>
+            return <SingleVolunteers email={singleEmail} key={singleEmail} eventName={this.props.eventName}/>
           } )}
 
           <a href={stringOfMail} className="btn">Mail All</a>
