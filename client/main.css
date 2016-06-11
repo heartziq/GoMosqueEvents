@@ -8,3 +8,17 @@
    border-bottom: 1px solid #388e3c !important;
    box-shadow: 0 1px 0 0 #388e3c !important
  }
+
+ .iconAlign {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+ .lessEmphasis {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.eventsCard {
+	height: 300px !important;
+}

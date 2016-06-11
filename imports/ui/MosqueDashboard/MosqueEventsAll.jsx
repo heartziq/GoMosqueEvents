@@ -14,14 +14,10 @@ export default class MosqueEventsAll extends React.Component{
       return <span> loading </span>
 
     return(
-    	<div>
-      Mosqevents all
-          <ul>
+    	<div className="row">
             {events.map((event)=>{
               return <MosqueEventSingle key={event._id} event={event} /> 
             } )}
-
-          </ul>
       </div>
     )
   }

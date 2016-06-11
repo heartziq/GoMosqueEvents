@@ -38,7 +38,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 
     return(
     	<div>
-      		<h1>MosqueDashboard</h1>
+      		<h1>Upcoming Events</h1>
       		<MosqueEventsAll events={events}/>
       	</div>
     )
