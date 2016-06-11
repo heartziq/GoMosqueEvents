@@ -1,13 +1,25 @@
 import React from 'react';
 import {Accounts} from 'meteor/accounts-base'
 
-const Register = React.createClass({
+const MosqueRegister = React.createClass({
   getInitialState: function(){
-    return {email: '', password: ''};
+    return {name: '', email: '', password: ''};
   },
 
   componentDidMount: function(){
-    document.title = "QuickPlate | Register";
+    document.title = "SN | Register";
+    $(document).ready(function() {
+      $('select').material_select();
+    });
+  },
+
+  handleWhoChange: function(e){
+    // this.setState({who: e.target.value});
+    this.setState({who: e.target.value})
+  },
+
+  handleNameChange: function(e){
+    this.setState({name: e.target.value});
   },
 
   handleEmailChange: function(e){
@@ -20,6 +32,8 @@ const Register = React.createClass({
 
   handleSubmit: function(e){
     e.preventDefault();
+    var who = this.state.who;
+    var name = this.state.name;
     var email = this.state.email;
     var password = this.state.password;
 
@@ -30,6 +44,10 @@ const Register = React.createClass({
     var options = {
       email: email,
       password: password,
+      profile: {
+        who: 'mosques',
+        name: name
+      }
     }
     //send request to server
     Accounts.createUser(options, function(err){
@@ -40,7 +58,7 @@ const Register = React.createClass({
         FlowRouter.go("dashboard")
       }
     })
-    this.setState({ email: '', password: ''});
+    this.setState({name: '', email: '', password: ''});
   },
 
   render(){
@@ -49,6 +67,12 @@ const Register = React.createClass({
         <div className="col s4 offset-s4">
           <h2 className="header center">Register</h2>
           <form onSubmit={this.handleSubmit}>
+            <div className="row">
+              <div className="input-field col s12">
+                <input id="name" type="text" className="validate" onChange={this.handleNameChange} value={this.state.name} />
+                <label htmlFor="name">Name</label>
+              </div>
+            </div>
             <div className="row">
               <div className="input-field col s12">
                 <input id="email" type="email" className="validate" value={this.state.email} onChange={this.handleEmailChange} />
@@ -74,4 +98,4 @@ const Register = React.createClass({
   }
 });
 
-export default Register;
+export default MosqueRegister;

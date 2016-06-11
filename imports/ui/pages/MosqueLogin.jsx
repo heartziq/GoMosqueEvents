@@ -1,7 +1,7 @@
 import React from 'react';
 import {Session} from 'meteor/session'
 
-const Login = React.createClass({
+const MosqueLogin = React.createClass({
   getInitialState: function(){
     return {email: '', password: ''};
   },
@@ -31,7 +31,7 @@ const Login = React.createClass({
       } else {
         var back = Session.get("back")
         if(back == undefined || back == ""){
-          FlowRouter.go("dashboard")
+          FlowRouter.go("mosqueDashboard")
         } else {
           FlowRouter.go(Session.get("back"))
           Session.set("back", "");
@@ -72,4 +72,4 @@ const Login = React.createClass({
   }
 });
 
-export default Login;
+export default MosqueLogin;
