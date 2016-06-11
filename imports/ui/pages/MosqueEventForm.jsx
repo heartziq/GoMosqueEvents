@@ -38,6 +38,9 @@ export default class MosqueEventForm extends React.Component {
       var name = this.refs.name.value.trim();
       var description = this.refs.description.value.trim();
       var theDate = this.refs.date.value.trim();
+      var start = this.refs.start.value.trim();
+      var end = this.refs.end.value.trim();
+
       var needParticipants = this.state.needParticipants;
       var numberParticipants = parseInt(this.refs.participantNumber.value.trim());
       var needVolunteers = this.state.needVolunteers;
@@ -53,11 +56,9 @@ export default class MosqueEventForm extends React.Component {
       console.log(numberVolunteers)
       console.log(gender)
 
-      Meteor.call('addEvents', name, description, theDate, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
+      Meteor.call('addEvents', name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
     gender)
-
-      //alert(name)
-    //  alert('submitted!')
+    
     }
 
     render() {
@@ -82,6 +83,12 @@ export default class MosqueEventForm extends React.Component {
 
                     <input type="date" className="datepicker col s8" id="date" ref="date"/>
                     <label htmlFor="date">Date</label>
+
+                    <input type="time" id="start" ref="start" className="col s8"/>
+                    <label htmlFor="start">Time Start</label>
+
+                    <input type="time" id="end" ref="end" className="col s8"/>
+                    <label htmlFor="end">Time End</label>
 
                 </div>
 

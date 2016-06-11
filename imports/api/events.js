@@ -16,7 +16,7 @@ if (Meteor.isServer) {
 Meteor.methods({
   //declare all methods related to the collection here
   // EXAMPLE:
-  addEvents(name, description, theDate, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
+  addEvents(name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
 
     // Make sure the user is logged in before inserting a task
@@ -28,6 +28,8 @@ gender) {
       name,
       description,
       theDate,
+      start,
+      end,
       needParticipants,
       numberParticipants,
       needVolunteers,
