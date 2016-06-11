@@ -35,7 +35,14 @@ export default class EventDetails extends TrackerReact(React.Component){
   }
 
   handleVolunteer(){
-    Meteor.call('volunteerUser')
+		event = this.event()
+
+		console.log(event._id)
+
+		Meteor.call('volunteerUser', event._id, function(){
+			console.log("SUCCESSS")
+		})
+
 
   }
 
