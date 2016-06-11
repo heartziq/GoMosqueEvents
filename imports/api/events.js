@@ -49,5 +49,8 @@ gender) {
   },
   volunteerUser(){
 
+  },
+  removeEvent(eventId){
+    Events.remove(eventId)
   }
 });
