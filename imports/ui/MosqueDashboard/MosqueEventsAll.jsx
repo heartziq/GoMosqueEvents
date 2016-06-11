@@ -15,9 +15,9 @@ export default class MosqueEventsAll extends React.Component{
 
     return(
     	<div className="row">
-            {events.map((event)=>{
-              return <MosqueEventSingle key={event._id} event={event} /> 
-            } )}
+        {events.map((event)=>{
+          return <MosqueEventSingle key={event._id} event={event} /> 
+        })}
       </div>
     )
   }

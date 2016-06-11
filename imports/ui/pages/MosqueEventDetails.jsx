@@ -81,9 +81,14 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   		volunteerCard = (
 
   			<div className="row">
+<<<<<<< HEAD
       			<div className="col s12 hoverable">
         			<div className="card-panel ">
 								<p>Number of Volunteers: {numberVolunteers}</p>
+=======
+      			<div className="col s12 ">
+        			<div className="card-panel hoverable">
+>>>>>>> 56f6a9091e69a17d438d0f6be40f072408036594
         				<h3> Volunteers</h3>
                  {showVolunteers}
               </div>
