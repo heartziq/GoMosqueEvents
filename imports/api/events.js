@@ -47,7 +47,7 @@ gender) {
   },
   updateEvents(eventId, name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
-    
+
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -76,7 +76,11 @@ gender) {
         participants: Meteor.user().emails[0].address
       } });
   },
-  volunteerUser(){
+  volunteerUser(eventId){
+    Events.update({_id: eventId}, {
+      $addToSet: {
+        volunteers: Meteor.user().emails[0].address
+      } });
 
   },
   removeEvent(eventId){

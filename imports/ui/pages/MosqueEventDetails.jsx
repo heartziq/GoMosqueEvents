@@ -4,6 +4,8 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react'
 import {Events} from '../../api/events.js'
 
 import Participants from '../MosqueEventDetails/Participants.jsx'
+import Volunteers from '../MosqueEventDetails/Volunteers.jsx'
+
 
 export default class MosqueEventDetails extends TrackerReact(React.Component){
 	constructor(){
@@ -21,7 +23,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 	    document.title = "GoMosque 2.0 | EventDetails"
 	}
 
-  	
+
 
 
 	event(){
@@ -44,16 +46,21 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
   	gender = (event.gender == "f") ? <span className="lessEmphasis female"><i className="material-icons iconAlign">person</i> <span className=""> Female Only</span> </span>: (event.gender == "m") ? <span className="lessEmphasis male"><i className="material-icons iconAlign">person</i> <span className=""> Male Only </span> </span>: <span className="lessEmphasis"><i className="material-icons iconAlign">person</i> <span className=""> Any Genders </span> </span>
 
+    pLength = (isNaN(event.numberParticipants)) ? <span> </span> : <span > / {event.numberParticipants} </span>
+
+numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.participants.length}</span>
+
   	participantCard = <span></span>
   	
   	if(event.needParticipants){
   		participantCard = (
 
+
   			<div className="row">
       			<div className="col s12">
         			<div className="card-panel hoverable">
         				<h3> Participants</h3>
-						<Participants participants={event.participants} eventName={event.name} />
+						    <Participants participants={event.participants} eventName={event.name} />
         			</div>
       			</div>
    			 </div>	 
@@ -70,8 +77,8 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
       			<div className="col s12 hoverable">
         			<div className="card-panel ">
         				<h3> Volunteers</h3>
-						<Participants participants={event.participants} eventName={event.name} />
-        			</div>
+                 <Volunteers volunteers={event.volunteers} eventName={event.name}/>
+              </div>
       			</div>
    			 </div>	 
 
