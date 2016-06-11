@@ -10,6 +10,18 @@ import Login from '/imports/ui/pages/Login.jsx';
 import Home from '/imports/ui/pages/Home.jsx';
 import Dashboard from '/imports/ui/pages/Dashboard.jsx';
 
+import EventDetails from '/imports/ui/pages/EventDetails.jsx';
+import Events from '/imports/ui/pages/Events.jsx';
+import History from '/imports/ui/pages/History.jsx';
+import MosqueDashboard from '/imports/ui/pages/MosqueDashboard.jsx';
+import MosqueEventForm from '/imports/ui/pages/MosqueEventForm.jsx';
+import MosqueLogin from '/imports/ui/pages/MosqueLogin.jsx';
+import MosqueRegister from '/imports/ui/pages/MosqueRegister.jsx';
+import MosqueHistory from '/imports/ui/pages/MosqueHistory.jsx';
+
+
+
+
 function isAuthenticated(context, redirect){
   if(!Meteor.userId()){
     Session.set("back", context.path)
@@ -61,6 +73,82 @@ FlowRouter.route("/dashboard", {
 },
 name: "dashboard"
 });
+
+
+//here
+FlowRouter.route('/eventDetails', {
+  action: function() {
+    mount(Layout, {
+      content: () => <EventDetails />,
+  });
+},
+name: "eventDetails"
+});
+
+FlowRouter.route('/events', {
+  action: function() {
+    mount(Layout, {
+      content: () => <Events />,
+  });
+},
+name: "events"
+});
+
+FlowRouter.route('/history', {
+  action: function() {
+    mount(Layout, {
+      content: () => <History />,
+  });
+},
+name: "history"
+});
+
+FlowRouter.route('/mosqueDashboard', {
+  action: function() {
+    mount(Layout, {
+      content: () => <MosqueDashboard />,
+  });
+},
+name: "mosqueDashboard"
+});
+
+FlowRouter.route('/mosqueEventForm', {
+  action: function() {
+    mount(Layout, {
+      content: () => <MosqueEventForm />,
+  });
+},
+name: "mosqueEventForm"
+});
+
+FlowRouter.route('/mosqueHistory', {
+  action: function() {
+    mount(Layout, {
+      content: () => <MosqueHistory />,
+  });
+},
+name: "mosqueHistory"
+});
+
+FlowRouter.route('/mosqueLogin', {
+  action: function() {
+    mount(Layout, {
+      content: () => <MosqueLogin />,
+  });
+},
+name: "mosqueLogin"
+});
+
+
+FlowRouter.route('/mosqueRegister', {
+  action: function() {
+    mount(Layout, {
+      content: () => <MosqueRegister />,
+  });
+},
+name: "mosqueRegister"
+});
+
 
 
 //import layout
