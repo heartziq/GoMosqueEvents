@@ -7,7 +7,7 @@ const Register = React.createClass({
   },
 
   componentDidMount: function(){
-    document.title = "QuickPlate | Register";
+    document.title = "QuickPlate | Mosque Registration";
   },
 
   handleEmailChange: function(e){
