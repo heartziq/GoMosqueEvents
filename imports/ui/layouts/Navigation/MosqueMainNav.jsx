@@ -31,7 +31,7 @@ const MosqueMainNav = React.createClass({
             <li><a onClick={this.handleLogout}>Logout</a></li>
           </ul>
           <div className="nav-wrapper gradient-navbar">
-            <a href={FlowRouter.path("index")} className="brand-logo">{Meteor.user().profile.name}</a>
+            <a href={FlowRouter.path("index")} className="brand-logo">{Meteor.user().profile.name} Mosque</a>
             <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
               <li><a href={FlowRouter.path("mosqueDashboard")}>Events</a></li>

@@ -46,27 +46,69 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
   	gender = (event.gender == "f") ? <span className="lessEmphasis female"><i className="material-icons iconAlign">person</i> <span className=""> Female Only</span> </span>: (event.gender == "m") ? <span className="lessEmphasis male"><i className="material-icons iconAlign">person</i> <span className=""> Male Only </span> </span>: <span className="lessEmphasis"><i className="material-icons iconAlign">person</i> <span className=""> Any Genders </span> </span>
 
-	pLength = (isNaN(event.numberParticipants)) ? <span> </span> : <span > / {event.numberParticipants} </span>
+    pLength = (isNaN(event.numberParticipants)) ? <span> </span> : <span > / {event.numberParticipants} </span>
 
 numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.participants.length}</span>
+
+  	participantCard = <span></span>
+  	
+  	if(event.needParticipants){
+  		participantCard = (
+
+
+  			<div className="row">
+      			<div className="col s12">
+        			<div className="card-panel hoverable">
+        				<h3> Participants</h3>
+						    <Participants participants={event.participants} eventName={event.name} />
+        			</div>
+      			</div>
+   			 </div>	 
+
+  		)
+  	}
+
+  	volunteerCard = <span></span>
+
+  	if(event.needVolunteers){
+  		volunteerCard = (
+
+  			<div className="row">
+      			<div className="col s12 hoverable">
+        			<div className="card-panel ">
+        				<h3> Volunteers</h3>
+                 <Volunteers volunteers={event.volunteers} eventName={event.name}/>
+              </div>
+      			</div>
+   			 </div>	 
+
+  		)
+  	}
 
 
 
 
 
     return(
-    	<div>
-	      <h1>{event.name}</h1>
-	      <p>{event.thedate}</p>
-	      <p>{needParticipants} | {needVolunteers} | {gender}</p>
-				<p>{numberParticipants}{pLength}</p>
-	      <p>{event.description}</p>
+    	<div className="topGap">
+    		<div className="row">
+      			<div className="col s12">
+        			<div className="card-panel hoverable">
+        				<h2>{event.name}</h2>
+        				<p>{event.thedate}</p>
+				        <p>{needParticipants} &nbsp; {needVolunteers} &nbsp; {gender}</p>
+				        <p>{event.description}</p>
+				        <div className="right-align">
+				        	<a href={`/MosqueEventUpdate/${event._id}`} className="btn green darken-2">Update</a>
+	          				<span className="marginSides"></span>
+	        				<button className="btn red darken-2" onClick={this.removeEvent.bind(this)}>Delete</button>
+        				</div>
+        			</div>
+      			</div>
+   			 </div>	  
 
-	      <button className="btn" onClick={this.removeEvent.bind(this)}>Delete</button>
-          <a href={`/MosqueEventUpdate/${event._id}`} className="green-text text-lighten-2">Update Event</a>
-
-				<Participants participants={event.participants} eventName={event.name} />
-				<Volunteers volunteers={event.volunteers} eventName={event.name}/>
+	     	{participantCard}
+	     	{volunteerCard}
 
       	</div>
     )
