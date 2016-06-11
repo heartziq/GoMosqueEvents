@@ -77,10 +77,10 @@ name: "dashboard"
 
 
 //here
-FlowRouter.route('/eventDetails', {
-  action: function() {
+FlowRouter.route('/eventDetails/:eventId', {
+  action: function(params) {
     mount(MainLayout, {
-      content: () => <EventDetails />,
+      content: () => <EventDetails eventId={params.eventId}/>,
   });
 },
 name: "eventDetails"
@@ -128,7 +128,7 @@ FlowRouter.route('/mosqueEventDetails/:eventId', {
       content: () => <MosqueEventDetails eventId={params.eventId}/>,
   });
 },
-name: "mosqueEventForm"
+name: "mosqueEventDetails"
 });
 
 FlowRouter.route('/mosqueHistory', {

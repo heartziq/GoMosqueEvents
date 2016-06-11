@@ -39,5 +39,14 @@ gender) {
       mosqueId: Meteor.userId(),           // _id of logged in user
       mosqueName: Meteor.user().profile.name  // username of logged in user
     });
+  },
+  participateUser(eventId){
+    Events.update({_id: eventId}, {
+      $addToSet: {
+        participants: Meteor.userId()
+      } });
+  },
+  volunteerUser(){
+
   }
 });
