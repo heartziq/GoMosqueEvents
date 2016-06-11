@@ -30,3 +30,15 @@
 .male {
 	color: #90caf9 !important;
 }
+
+.fullHeight{
+  height:100vh !important;
+}
+
+.topGap{
+  margin-top: 30px;
+}
+
+.marginSides{
+  margin-right: 20px
+}

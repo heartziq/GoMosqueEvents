@@ -17,12 +17,12 @@ export default class MosqueEventSingle extends React.Component{
 
     return(
     	<div>
-          <div className="col s12 m4 ">
+          <div className="col s12 m6 ">
             <div className="card ">
               <div className="card-content black-text eventsCard">
-                <span className="card-title">{event.name}</span>
+                <span className="card-title cTitleWidth truncate"><strong>{event.name}</strong></span>
                 <p>{event.theDate} </p>
-                <p>faketime - faketime</p>
+                <p>{event.start} - {event.end}</p>
                 <br/>
                 <p>{needParticipants}</p>
                 <p>{needVolunteers}</p>
