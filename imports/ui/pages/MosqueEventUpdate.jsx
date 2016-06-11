@@ -36,7 +36,7 @@ export default class MosqueEventForm extends TrackerReact(React.Component) {
     }
 
     defaultEventValues(){
-
+        
     }
 
     handleSubmit(e) {

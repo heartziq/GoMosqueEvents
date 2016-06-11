@@ -22,8 +22,8 @@ export default class EventSingle extends React.Component{
             <p>{event.end}</p>
           </div>
           <div className="card-action">
-            <a href="#">Just Participate</a>
-            <a href="#">Volunteer!</a>
+            <a href={`/eventDetails/${event._id}`}>View Details</a>
+
           </div>
         </div>
     </div>
