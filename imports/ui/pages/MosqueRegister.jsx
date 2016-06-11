@@ -7,6 +7,7 @@ const MosqueRegister = React.createClass({
   },
 
   componentDidMount: function(){
+
     document.title = "SN | Register";
     $(document).ready(function() {
       $('select').material_select();
@@ -20,6 +21,7 @@ const MosqueRegister = React.createClass({
 
   handleNameChange: function(e){
     this.setState({name: e.target.value});
+
   },
 
   handleEmailChange: function(e){
