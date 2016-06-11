@@ -63,7 +63,7 @@ export default class EventsView extends TrackerReact(React.Component) {
             //console.log("events: " + events)
         
         return (
-            <div>
+            <div className="bottomGap">
                 <form onSubmit={this.handleFilter.bind(this)}>
 
                     <div className="row">
@@ -75,9 +75,7 @@ export default class EventsView extends TrackerReact(React.Component) {
                             <input name="filterBy" type="radio" id="all" value="all" ref="filterBy" defaultChecked/>
                             <label htmlFor="all">All</label>
                             <button type="submit" className="btn">Filter</button>
-
                         </p>
-
                     </div>
 
                 </form>

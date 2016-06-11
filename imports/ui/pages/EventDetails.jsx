@@ -60,10 +60,9 @@ export default class EventDetails extends TrackerReact(React.Component){
 	      <h1>{event.name}</h1>
 	      <p>{event.thedate}</p>
 	      <p>{event.description}</p>
-
-      <p>{needParticipants}</p>
-      <p>{needVolunteers}</p>
-      	</div>
+        <p>{needParticipants}</p>
+        <p>{needVolunteers}</p>
+      </div>
     )
   }
 }

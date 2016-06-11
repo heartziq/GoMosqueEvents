@@ -48,7 +48,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
     pLength = (isNaN(event.numberParticipants)) ? <span> </span> : <span > / {event.numberParticipants} </span>
 
-numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.participants.length}</span>
+    numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.participants.length}</span>
 
   	participantCard = <span></span>
   	
@@ -74,8 +74,8 @@ numberParticipants = (!event.participants) ? <span> 0 </span> : <span >{event.pa
   		volunteerCard = (
 
   			<div className="row">
-      			<div className="col s12 hoverable">
-        			<div className="card-panel ">
+      			<div className="col s12 ">
+        			<div className="card-panel hoverable">
         				<h3> Volunteers</h3>
                  <Volunteers volunteers={event.volunteers} eventName={event.name}/>
               </div>

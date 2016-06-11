@@ -5,7 +5,7 @@ const Layout = ({content}) => (
   <div>
     <Nav />
 
-    <div className="container">
+    <div className="container bottomGap">
     	{content()}
     </div>
   </div>

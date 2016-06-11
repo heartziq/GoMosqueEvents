@@ -4,7 +4,7 @@ import MainNav from './Navigation/MainNav.jsx';
 const MainLayout = ({content}) => (
   <div className="main-wrapper">
     <MainNav />
-    <div className="container">
+    <div className="container ">
     	{content()}
     </div>
   </div>
