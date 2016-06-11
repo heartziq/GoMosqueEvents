@@ -2,7 +2,10 @@ import React from 'react';
 import EventSingle from './EventSingle.jsx';
 
 export default class EventAll extends React.Component{
+  //filter
+  filter(type){
 
+  }
   componentDidMount(){
     document.title = "GoMosque 2.0 | Events"
   }

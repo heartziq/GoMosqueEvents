@@ -58,9 +58,7 @@ export default class MosqueEventForm extends React.Component {
 
       Meteor.call('addEvents', name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
     gender)
-
-      //alert(name)
-    //  alert('submitted!')
+    
     }
 
     render() {
