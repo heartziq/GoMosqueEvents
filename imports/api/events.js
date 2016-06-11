@@ -11,6 +11,11 @@ if (Meteor.isServer) {
   Meteor.publish('allEvents', function eventsPublication() {
     return Events.find();
   });
+
+  Meteor.publish("allUsers", function () {
+    return Meteor.users.find({});
+});
+
 }
 
 Meteor.methods({
@@ -18,7 +23,7 @@ Meteor.methods({
   // EXAMPLE:
   addEvents(name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
-    
+
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -68,7 +73,7 @@ gender) {
   participateUser(eventId){
     Events.update({_id: eventId}, {
       $addToSet: {
-        participants: Meteor.userId()
+        participants: Meteor.user().emails[0].address
       } });
   },
   volunteerUser(){

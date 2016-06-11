@@ -23,7 +23,6 @@ export default class EventSingle extends React.Component{
           </div>
           <div className="card-action">
             <a href={`/eventDetails/${event._id}`}>View Details</a>
-
           </div>
         </div>
     </div>

@@ -3,6 +3,8 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react'
 
 import {Events} from '../../api/events.js'
 
+import Participants from '../MosqueEventDetails/Participants.jsx'
+
 export default class MosqueEventDetails extends TrackerReact(React.Component){
 	constructor(){
 		super();
@@ -12,7 +14,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 				events: Meteor.subscribe("allEvents")
 			}
 		}
-	}	
+	}
 
 
 	componentDidMount(){
@@ -42,19 +44,21 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
   	gender = (event.gender == "f") ? <span className="lessEmphasis female"><i className="material-icons iconAlign">person</i> <span className=""> Female Only</span> </span>: (event.gender == "m") ? <span className="lessEmphasis male"><i className="material-icons iconAlign">person</i> <span className=""> Male Only </span> </span>: <span className="lessEmphasis"><i className="material-icons iconAlign">person</i> <span className=""> Any Genders </span> </span>
 
-  	
+
 
 
     return(
     	<div>
 	      <h1>{event.name}</h1>
 	      <p>{event.thedate}</p>
-	      <p>{needParticipants} | {needVolunteers} | {gender}</p> 
+	      <p>{needParticipants} | {needVolunteers} | {gender}</p>
 
 	      <p>{event.description}</p>
 
 	      <button className="btn" onClick={this.removeEvent.bind(this)}>Delete</button>
           <a href={`/MosqueEventUpdate/${event._id}`} className="green-text text-lighten-2">Update Event</a>
+
+				<Participants participants={event.participants} eventName={event.name} />
 
       	</div>
     )

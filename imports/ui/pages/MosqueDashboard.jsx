@@ -10,7 +10,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
   componentDidMount(){
     document.title = "GoMosque 2.0 | MosqueDashboard"
   }
-  
+
   constructor(){
 		super();
 
@@ -19,10 +19,10 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 				events: Meteor.subscribe("allEvents")
 			},
 		}
-	}	
+	}
 
 	events(){
-		events = Events.find({mosqueName: "Ghufran"}).fetch();
+		events = Events.find({mosqueId: Meteor.userId()}).fetch();
 		console.log("e " + events )
 		return events
 	}
