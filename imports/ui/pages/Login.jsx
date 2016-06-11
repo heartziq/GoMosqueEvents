@@ -8,15 +8,12 @@ const Login = React.createClass({
   componentDidMount: function(){
     document.title = "QuickPlate | Login"
   },
-
   handleEmailChange: function(e){
     this.setState({email: e.target.value});
   },
-
   handlePasswordChange: function(e){
     this.setState({password: e.target.value});
   },
-
   handleSubmit: function(e){
     e.preventDefault();
     var email = this.state.email;
@@ -25,7 +22,6 @@ const Login = React.createClass({
     if(!email || !password){
       return;
     }
-
     Meteor.loginWithPassword(email, password, function(err){
       if(err){
       } else {
@@ -59,7 +55,6 @@ const Login = React.createClass({
                 <label htmlFor="password">Password</label>
               </div>
             </div>
-
             <div className="row">
               <button className="btn waves-effect waves-light" type="submit" name="action">Log Me In!
                 <i className="material-icons right">send</i>

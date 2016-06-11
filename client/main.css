@@ -20,5 +20,13 @@
 }
 
 .eventsCard {
-	height: 300px !important;
+	height: 200px !important;
+}
+
+.female {
+	color: pink !important;
+}
+
+.male {
+	color: #90caf9 !important;
 }

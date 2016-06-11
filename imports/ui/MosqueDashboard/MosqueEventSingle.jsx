@@ -18,17 +18,17 @@ export default class MosqueEventSingle extends React.Component{
     return(
     	<div>
           <div className="col s12 m4 ">
-            <div className="card eventsCard">
-              <div className="card-content black-text">
+            <div className="card ">
+              <div className="card-content black-text eventsCard">
                 <span className="card-title">{event.name}</span>
-                <p>{event.theDate}</p>
+                <p>{event.theDate} </p>
+                <p>faketime - faketime</p>
                 <br/>
                 <p>{needParticipants}</p>
                 <p>{needVolunteers}</p>
-
               </div>
               <div className="card-action">
-                <a href="#">View Details</a>
+                <a href={`/MosqueEventDetails/${event._id}`} className="green-text text-lighten-2">View Details</a>
               </div>
             </div>
           </div>
