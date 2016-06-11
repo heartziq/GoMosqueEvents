@@ -44,9 +44,11 @@ const MosqueLogin = React.createClass({
   render(){
     return (
       <div className="row">
-        <div className="col s4 offset-s4">
-          <h2 className="header center">Login</h2>
+        <div className="col s4 offset-s4 center">
+          <h2 className="header">Login</h2>
+          
           <form onSubmit={this.handleSubmit}>
+            
             <div className="row">
               <div className="input-field col s12">
                 <input id="email" type="email" className="validate" onChange={this.handleEmailChange} />
@@ -61,11 +63,12 @@ const MosqueLogin = React.createClass({
             </div>
 
             <div className="row">
-              <button className="btn waves-effect waves-light" type="submit" name="action">Log Me In!
+              <button className="btn waves-effect waves-light green darken-2" type="submit" name="action">Login
                 <i className="material-icons right">send</i>
               </button>
             </div>
           </form>
+
         </div>
       </div>
     )

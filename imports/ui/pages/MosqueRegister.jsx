@@ -67,7 +67,7 @@ const MosqueRegister = React.createClass({
         <div className="col s4 offset-s4">
           <h2 className="header center">Register</h2>
           <form onSubmit={this.handleSubmit}>
-            <div className="row">
+            <div className="row green darken-2">
               <div className="input-field col s12">
                 <input id="name" type="text" className="validate" onChange={this.handleNameChange} value={this.state.name} />
                 <label htmlFor="name">Name</label>

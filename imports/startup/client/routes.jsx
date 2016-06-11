@@ -4,6 +4,8 @@ import {FlowRouter} from 'meteor/kadira:flow-router-ssr';
 
 import Layout from '/imports/ui/layouts/Layout.jsx';
 import MainLayout from '/imports/ui/layouts/MainLayout.jsx';
+import MosqueLayout from '/imports/ui/layouts/MosqueLayout.jsx';
+import MosqueMainLayout from '/imports/ui/layouts/MosqueMainLayout.jsx';
 
 import Register from '/imports/ui/pages/Register.jsx';
 import Login from '/imports/ui/pages/Login.jsx';
@@ -78,7 +80,7 @@ name: "dashboard"
 //here
 FlowRouter.route('/eventDetails', {
   action: function() {
-    mount(Layout, {
+    mount(MainLayout, {
       content: () => <EventDetails />,
   });
 },
@@ -87,7 +89,7 @@ name: "eventDetails"
 
 FlowRouter.route('/events', {
   action: function() {
-    mount(Layout, {
+    mount(MainLayout, {
       content: () => <Events />,
   });
 },
@@ -96,7 +98,7 @@ name: "events"
 
 FlowRouter.route('/history', {
   action: function() {
-    mount(Layout, {
+    mount(MainLayout, {
       content: () => <History />,
   });
 },
@@ -105,7 +107,7 @@ name: "history"
 
 FlowRouter.route('/mosqueDashboard', {
   action: function() {
-    mount(Layout, {
+    mount(MosqueMainLayout, {
       content: () => <MosqueDashboard />,
   });
 },
@@ -114,7 +116,7 @@ name: "mosqueDashboard"
 
 FlowRouter.route('/mosqueEventForm', {
   action: function() {
-    mount(Layout, {
+    mount(MosqueMainLayout, {
       content: () => <MosqueEventForm />,
   });
 },
@@ -123,7 +125,7 @@ name: "mosqueEventForm"
 
 FlowRouter.route('/mosqueHistory', {
   action: function() {
-    mount(Layout, {
+    mount(MosqueMainLayout, {
       content: () => <MosqueHistory />,
   });
 },
@@ -132,7 +134,7 @@ name: "mosqueHistory"
 
 FlowRouter.route('/mosqueLogin', {
   action: function() {
-    mount(Layout, {
+    mount(MosqueLayout, {
       content: () => <MosqueLogin />,
   });
 },
@@ -142,7 +144,7 @@ name: "mosqueLogin"
 
 FlowRouter.route('/mosqueRegister', {
   action: function() {
-    mount(Layout, {
+    mount(MosqueLayout, {
       content: () => <MosqueRegister />,
   });
 },

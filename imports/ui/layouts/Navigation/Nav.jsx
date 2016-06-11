@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navi = React.createClass({
+const Nav = React.createClass({
   render(){
     return(
       <nav>
@@ -17,4 +17,4 @@ const Navi = React.createClass({
 
 });
 
-export default Navi;
+export default Nav;
