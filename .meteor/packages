@@ -26,6 +26,9 @@ accounts-base
 themeteorchef:bert
 check
 
+autopublish
+insecure
+
 materialize:materialize
 planettraining:material-design-icons-font
 msavin:mongol
