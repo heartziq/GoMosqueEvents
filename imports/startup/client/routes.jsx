@@ -21,7 +21,7 @@ import MosqueEventDetails from '/imports/ui/pages/MosqueEventDetails.jsx';
 import MosqueLogin from '/imports/ui/pages/MosqueLogin.jsx';
 import MosqueRegister from '/imports/ui/pages/MosqueRegister.jsx';
 import MosqueHistory from '/imports/ui/pages/MosqueHistory.jsx';
-
+import MosqueEventUpdate from '/imports/ui/pages/MosqueEventUpdate.jsx';
 
 function isAuthenticated(context, redirect){
   if(!Meteor.userId()){
@@ -119,6 +119,16 @@ FlowRouter.route('/mosqueEventForm', {
       content: () => <MosqueEventForm />,
   });
 },
+name: "mosqueEventForm"
+});
+
+FlowRouter.route('/MosqueEventUpdate/:eventId', {
+  action: function(params) {
+    mount(MosqueMainLayout, {
+      content: () => <MosqueEventUpdate  eventId={params.eventId}/>,
+  });
+},
+
 name: "mosqueEventForm"
 });
 

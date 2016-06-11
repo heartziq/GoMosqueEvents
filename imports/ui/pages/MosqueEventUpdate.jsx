@@ -1,17 +1,21 @@
 import React from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react'
 
-import {Events} from '../../api/events.js';
+import {Events} from '../../api/events.js'
 
-export default class MosqueEventForm extends TrackerReact(React.Component) {
+export default class MosqueEventUpdate extends TrackerReact(React.Component) {
     constructor(props) {
-        super(props);
+        super(props)
 
-        this.state = {
-            needParticipants: true,
-            needVolunteers: true,
-            gender: "all"
-        };
+        defaultEventValues = this.defaultEventValues()
+        this.state={
+            subscription: {
+                events: Meteor.subscribe("allEvents")
+            },
+            needParticipants: defaultEventValues.needParticipants,
+            needVolunteers: defaultEventValues.needVolunteers,
+            gender: defaultEventValues.gender,
+        }
     }
 
     componentDidMount() {
@@ -36,7 +40,7 @@ export default class MosqueEventForm extends TrackerReact(React.Component) {
     }
 
     defaultEventValues(){
-        
+        return Events.findOne({_id: this.props.eventId})
     }
 
     handleSubmit(e) {
@@ -63,18 +67,26 @@ export default class MosqueEventForm extends TrackerReact(React.Component) {
       console.log(numberVolunteers)
       console.log(gender)
 
-      Meteor.call('addEvents', name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
+      Meteor.call('updateEvents', this.props.eventId, name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
     gender)
     
     }
 
     render() {
+
+        defaultEventValues = this.defaultEventValues()
+
+        if(!defaultEventValues)
+            return <span>loading.. </span>
+
+        console.log(defaultEventValues)
+
         return (
             <form className="col s12" onSubmit={this.handleSubmit.bind(this)}>
                 <div className="row">
 
                     <div className="input-field col s8">
-                        <input id="name" type="text" className="validate" ref="name" />
+                        <input id="name" type="text" className="validate" ref="name" defaultValue={defaultEventValues.name}/>
                         <label htmlFor="name">Name</label>
                     </div>
                 </div>
@@ -82,16 +94,16 @@ export default class MosqueEventForm extends TrackerReact(React.Component) {
                 <div className="row">
 
                     <div className="input-field col s8">
-                        <textarea id="description" className="materialize-textarea" ref="description"></textarea>
+                        <textarea id="description" className="materialize-textarea" ref="description" defaultValue={defaultEventValues.description}></textarea>
                         <label htmlFor="description">Description</label>
                     </div>
                 </div>
                 <div className="row">
 
-                    <input type="date" className="datepicker col s8" id="date" ref="date"/>
+                    <input type="date" className="datepicker col s8" id="date" ref="date" defaultValue={defaultEventValues.theDate}/>
                     <label htmlFor="date">Date</label>
 
-                    <input type="time" id="start" ref="start" className="col s8"/>
+                    <input type="time" id="start" ref="start" className="col s8" defaultValue={defaultEventValues.start}/>
                     <label htmlFor="start">Time Start</label>
 
                     <input type="time" id="end" ref="end" className="col s8"/>

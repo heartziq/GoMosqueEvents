@@ -17,7 +17,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 		this.state={
 			subscription: {
 				events: Meteor.subscribe("allEvents")
-			}
+			},
 		}
 	}	
 

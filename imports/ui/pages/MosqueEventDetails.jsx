@@ -4,11 +4,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react'
 import {Events} from '../../api/events.js'
 
 export default class MosqueEventDetails extends TrackerReact(React.Component){
-	componentDidMount(){
-	    document.title = "GoMosque 2.0 | EventDetails"
-	}
-
-  	constructor(){
+	constructor(){
 		super();
 
 		this.state={
@@ -17,6 +13,13 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 			}
 		}
 	}	
+
+
+	componentDidMount(){
+	    document.title = "GoMosque 2.0 | EventDetails"
+	}
+
+  	
 
 
 	event(){
@@ -51,7 +54,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 	      <p>{event.description}</p>
 
 	      <button className="btn" onClick={this.removeEvent.bind(this)}>Delete</button>
-	      <button className="btn">Update</button>
+          <a href={`/MosqueEventUpdate/${event._id}`} className="green-text text-lighten-2">Update Event</a>
 
       	</div>
     )
