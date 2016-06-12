@@ -29,21 +29,25 @@ const MainNav = React.createClass({
         <ul id="userDropdown" className="dropdown-content">
           <li><a onClick={this.handleLogout}>Logout</a></li>
         </ul>
-        <div className="nav-wrapper gradient-navbar container">
-          <a href={FlowRouter.path("index")} className="brand-logo">GoMosque Events</a>
+        <ul id="userDropdown1" className="dropdown-content">
+          <li><a onClick={this.handleLogout}>Logout</a></li>
+        </ul>
+        <div className="nav-wrapper gradient-navbar">
+          <a href={FlowRouter.path("index")} className="brand-logo">QuickPlate</a>
           <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
-          <ul className="right hide-on-med-and-down">
+            <ul className="right hide-on-med-and-down">
+              <li><a href={FlowRouter.path("eventsView")}>Events</a></li>
+              <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
+              <li><a className="dropdown-button" data-activates="userDropdown">{Meteor.user().emails[0].address}</a></li>
+            </ul>
+          <ul className="side-nav" id="mobile-demo">
             <li><a href={FlowRouter.path("eventsView")}>Events</a></li>
             <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
-            <li><a className="dropdown-button" data-activates="userDropdown">{Meteor.user().emails[0].address}</a></li>
-          </ul>
-          <ul className="side-nav" id="mobile-demo">
-             <li><a href={FlowRouter.path("eventsView")}>Events</a></li>
-            <li><a href={FlowRouter.path("dashboard")}>Dashboard</a></li>
-            <li><a className="dropdown-button" data-activates="userDropdown">{Meteor.user().emails[0].address}</a></li>
+            <li><a className="dropdown-button" data-activates="userDropdown1">{Meteor.user().emails[0].address}</a></li>
           </ul>
         </div>
       </nav>
+
     )
   }
 });
