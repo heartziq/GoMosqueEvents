@@ -8,13 +8,19 @@ export default class EventDetails extends TrackerReact(React.Component){
 	    document.title = "GoMosque 2.0 | EventDetails"
 	}
 
-  	constructor(){
-		super();
+  	constructor(props){
+		super(props);
+
+    hasParticipated = this.hasParticipated()
+    hasVolunteered = this.hasVolunteered()
+
 
 		this.state={
 			subscription: {
 				events: Meteor.subscribe("allEvents")
-			}
+			},
+      participate:hasParticipated,
+      volunteer:hasVolunteered
 		}
 	}
 
@@ -28,10 +34,29 @@ export default class EventDetails extends TrackerReact(React.Component){
 
     console.log(event._id)
 
-    Meteor.call('participateUser', event._id, function(){
-      console.log("SUCCESSS")
-      Materialize.toast('Participation RSVP Success!', 4000) 
-    })
+    if(this.state.participate){
+
+      Meteor.call('participateUser', event._id, function(){
+        console.log("SUCCESSS")
+        Materialize.toast('Participation RSVP Success!', 4000) 
+
+      })
+
+      this.setState({
+        participate: false
+      })
+
+    } else {
+       Meteor.call('cancelParticipation', event._id, function(){
+        console.log("SUCCESSS")
+        Materialize.toast('Participation Cancelled!', 4000) 
+
+      })
+        this.setState({
+          participate: true
+        })
+
+    }
 
   }
 
@@ -40,13 +65,46 @@ export default class EventDetails extends TrackerReact(React.Component){
 
 		console.log(event._id)
 
-		Meteor.call('volunteerUser', event._id, function(){
-			console.log("SUCCESSS")
-            Materialize.toast('Volunteer RSVP Success!', 4000) 
+    if(this.state.volunteer){
 
-		})
+  		Meteor.call('volunteerUser', event._id, function(){
+  			console.log("SUCCESSS")
+              Materialize.toast('Volunteer RSVP Success!', 4000) 
+
+  		})
+
+      this.setState({
+          volunteer: false
+        })
+
+    } else {
+      Meteor.call('cancelVolunteer', event._id, function(){
+        console.log("SUCCESSS")
+        Materialize.toast('Volunteer Cancelled!', 4000) 
+
+      })
+        this.setState({
+          volunteer: true
+        })
+    }
 
 
+  }
+
+  hasParticipated(){
+    event = this.event()
+    if(Events.findOne({_id: event._id, participants: Meteor.user().emails[0].address}))
+      return false;
+    else
+      return true;
+  }
+
+   hasVolunteered(){
+    event = this.event()
+    if(Events.findOne({_id: event._id, volunteers: Meteor.user().emails[0].address}))
+      return false;
+    else
+      return true;
   }
 
   render(){
@@ -55,8 +113,14 @@ export default class EventDetails extends TrackerReact(React.Component){
     if(!event)
       return <span>loading</span>
 
-   needParticipants = event.needParticipants ? <button className="btn blue darken-2 fullButton" onClick={this.handleParticipate.bind(this)}><i className="material-icons left">perm_identity</i>Participate</button> : <span></span>
-    needVolunteers = event.needVolunteers ? <button className="btn blue darken-2 fullButton" onClick={this.handleVolunteer.bind(this)}><i className="material-icons left">assignment_indi</i>Volunteer</button>: <span></span>
+
+    console.log(this.state.participate)
+
+    participateBtn = this.state.participate ? <button className="btn blue darken-2 fullButton" onClick={this.handleParticipate.bind(this)}><i className="material-icons left">perm_identity</i>Participate</button> : <button className="btn grey darken-2 fullButton" onClick={this.handleParticipate.bind(this)}>Cancel Participation</button>
+    volunteerBtn = this.state.volunteer ? <button className="btn blue darken-2 fullButton" onClick={this.handleParticipate.bind(this)}><i className="material-icons left">assignment_indi</i>Volunteer</button> : <button className="btn grey darken-2 fullButton" onClick={this.handleVolunteer.bind(this)}>Cancel Volunteer</button>
+
+    needParticipants = event.needParticipants ? <span>{participateBtn}</span> : <span></span>
+    needVolunteers = event.needVolunteers ? <span>{volunteerBtn}</span> : <span></span>
 
     gender = (event.gender == "f") ? <span className="lessEmphasis female"><i className="material-icons iconAlign">person</i> <span className=""> Female Only</span> </span>: (event.gender == "m") ? <span className="lessEmphasis male"><i className="material-icons iconAlign">person</i> <span className=""> Male Only </span> </span>: <span className="lessEmphasis"><i className="material-icons iconAlign">person</i> <span className=""> Any Genders </span> </span>
 

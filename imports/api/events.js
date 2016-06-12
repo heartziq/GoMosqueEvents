@@ -76,12 +76,24 @@ gender) {
         participants: Meteor.user().emails[0].address
       } });
   },
+  cancelParticipation(eventId){
+    Events.update({_id: eventId}, {
+      $pull: {
+        participants: Meteor.user().emails[0].address
+      } });
+  },
   volunteerUser(eventId){
     Events.update({_id: eventId}, {
       $addToSet: {
         volunteers: Meteor.user().emails[0].address
       } });
 
+  },
+  cancelVolunteer(eventId){
+    Events.update({_id: eventId}, {
+      $pull: {
+        volunteers: Meteor.user().emails[0].address
+      } });
   },
   removeEvent(eventId){
     Events.remove(eventId)
