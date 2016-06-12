@@ -30,6 +30,9 @@ const MosqueMainNav = React.createClass({
           <ul id="userDropdown" className="dropdown-content">
             <li><a onClick={this.handleLogout}>Logout</a></li>
           </ul>
+          <ul id="userDropdown1" className="dropdown-content">
+            <li><a onClick={this.handleLogout}>Logout</a></li>
+          </ul>
           <div className="nav-wrapper gradient-navbar">
             <a href={FlowRouter.path("index")} className="brand-logo">GoMosque Events</a>
             <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
@@ -41,7 +44,7 @@ const MosqueMainNav = React.createClass({
             <ul className="side-nav" id="mobile-demo">
               <li><a href={FlowRouter.path("mosqueDashboard")}>Upcoming</a></li>
               <li><a href={FlowRouter.path("mosqueHistory")}>Past</a></li>
-              <li><a className="dropdown-button" data-activates="userDropdown">{Meteor.user().emails[0].address}</a></li>            
+              <li><a className="dropdown-button" data-activates="userDropdown1">{Meteor.user().emails[0].address}</a></li>
             </ul>
           </div>
         </div>
