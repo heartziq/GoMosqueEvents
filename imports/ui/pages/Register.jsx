@@ -7,7 +7,7 @@ const Register = React.createClass({
   },
 
   componentDidMount: function(){
-    document.title = "GoMosque 2.0 | Register";
+    document.title = "Mosque Events | Register";
     $(document).ready(function() {
       $('select').material_select();
     });
