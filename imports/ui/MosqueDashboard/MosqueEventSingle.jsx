@@ -3,7 +3,7 @@ import React from 'react';
 export default class MosqueEventSingle extends React.Component{
 
   componentDidMount(){
-    document.title = "GoMosque 2.0 | MosqueDashboard"
+    document.title = "Mosque Events | MosqueDashboard"
   }
 
 

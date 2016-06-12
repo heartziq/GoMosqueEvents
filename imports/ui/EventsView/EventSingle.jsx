@@ -3,7 +3,7 @@ import React from 'react';
 export default class EventSingle extends React.Component{
 
   componentDidMount(){
-    document.title = "GoMosque 2.0 | Events"
+    document.title = "Mosque Events | Events"
   }
 
   render(){

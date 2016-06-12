@@ -4,7 +4,7 @@ import MosqueEventSingle from './MosqueEventSingle.jsx'
 export default class MosqueEventsAll extends React.Component{
 
   componentDidMount(){
-    document.title = "GoMosque 2.0 | MosqueDashboard"
+    document.title = "Mosque Events | MosqueDashboard"
   }
 
 

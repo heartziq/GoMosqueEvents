@@ -19,7 +19,7 @@ export default class MosqueEventUpdate extends TrackerReact(React.Component) {
     }
 
     componentDidMount() {
-        document.title = "GoMosque 2.0 | MosqueEventForm"
+        document.title = "Mosque Events | MosqueEventForm"
         //load jQuery for datePicker
         $('.datepicker').pickadate({
             selectMonths: true, // Creates a dropdown to control month

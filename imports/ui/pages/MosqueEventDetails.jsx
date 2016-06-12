@@ -19,7 +19,7 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 	}
 
 	componentDidMount(){
-	    document.title = "GoMosque 2.0 | EventDetails"
+	    document.title = "Mosque Events | EventDetails"
 	}
 
 	event(){
