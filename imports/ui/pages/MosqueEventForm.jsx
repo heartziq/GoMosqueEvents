@@ -57,9 +57,16 @@ export default class MosqueEventForm extends React.Component {
       console.log(gender)
 
       Meteor.call('addEvents', name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
-    gender)
+    gender, (error,data) => {
+            if(error){
+                Bert.alert('Some input fields are not filled in.', 'danger', 'fixed-top', 'fa-frown-o');
+            } else {
+                Materialize.toast('Event Added Successfully!', 4000)
+                FlowRouter.go("/mosqueDashboard")
 
-      FlowRouter.go("/mosqueDashboard")
+            }
+        })
+
     
     }
 
