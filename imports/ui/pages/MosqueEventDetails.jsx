@@ -81,8 +81,8 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   		volunteerCard = (
 
   			<div className="row">
+      			<div className="col s12 ">
 
-      			<div className="col s12">
         			<div className="card-panel hoverable">
 								<p>Number of Volunteers: {numberVolunteers}</p>
         				<h3> Volunteers</h3>
@@ -93,10 +93,6 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
 
   		)
   	}
-
-
-
-
 
     return(
     	<div className="topGap">

@@ -23,7 +23,9 @@ Meteor.methods({
   // EXAMPLE:
   addEvents(name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
-
+    if(!name || !description || !theDate || !start || !end || !needParticipants || !numberParticipants || !needVolunteers || !numberVolunteers || !gender){
+      throw new Meteor.Error('Some input fields are not filled in.');
+    }
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -47,7 +49,9 @@ gender) {
   },
   updateEvents(eventId, name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
 gender) {
-
+    if(!name || !description || !theDate || !start || !end || !needParticipants || !numberParticipants || !needVolunteers || !numberVolunteers || !gender){
+      throw new Meteor.Error('Some input fields are not filled in.');
+    }
     // Make sure the user is logged in before inserting a task
     if (! this.userId) {
       throw new Meteor.Error('not-authorized');
@@ -76,12 +80,24 @@ gender) {
         participants: Meteor.user().emails[0].address
       } });
   },
+  cancelParticipation(eventId){
+    Events.update({_id: eventId}, {
+      $pull: {
+        participants: Meteor.user().emails[0].address
+      } });
+  },
   volunteerUser(eventId){
     Events.update({_id: eventId}, {
       $addToSet: {
         volunteers: Meteor.user().emails[0].address
       } });
 
+  },
+  cancelVolunteer(eventId){
+    Events.update({_id: eventId}, {
+      $pull: {
+        volunteers: Meteor.user().emails[0].address
+      } });
   },
   removeEvent(eventId){
     Events.remove(eventId)

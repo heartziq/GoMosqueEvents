@@ -25,7 +25,7 @@ export default class MosqueEventSingle extends React.Component{
                 <p>{event.theDate}, {event.start} - {event.end} </p>
                 <br/>
                 <p>{gender}</p>
-                <p>{needParticipants} &nbsp; {needVolunteers}</p>
+                <p>{needParticipants} {needVolunteers}</p>
               </div>
               <div className="card-action">
                 <a href={`/MosqueEventDetails/${event._id}`} className="green-text text-lighten-2">View Details</a>

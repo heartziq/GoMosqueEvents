@@ -68,9 +68,16 @@ export default class MosqueEventUpdate extends TrackerReact(React.Component) {
       console.log(gender)
 
       Meteor.call('updateEvents', this.props.eventId, name, description, theDate, start, end, needParticipants, numberParticipants, needVolunteers, numberVolunteers,
-    gender)
-
+    gender, (error,data) => {
+            if(error){
+                Bert.alert('Some input fields are not filled in.', 'danger', 'fixed-top', 'fa-frown-o');
+            } else {
+                Materialize.toast('Event Updated Successfully!', 4000)
             FlowRouter.go(`/mosqueEventDetails/${this.props.eventId}`)
+
+            }
+        })
+
 
     
     }

@@ -44,19 +44,19 @@ const MosqueLogin = React.createClass({
   render(){
     return (
       <div className="row">
-        <div className="col s4 offset-s4 center">
+        <div className="col m4 offset-m4 s12 center">
           <h2 className="header">Login</h2>
           
           <form onSubmit={this.handleSubmit}>
             
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col m12 s12 ">
                 <input id="email" type="email" className="validate" onChange={this.handleEmailChange} />
                 <label htmlFor="email" data-error="Error!">Email</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col m12 s12 ">
                 <input id="password" type="password" className="validate" onChange={this.handlePasswordChange}/>
                 <label htmlFor="password">Password</label>
               </div>
