@@ -37,15 +37,15 @@ export default class Participants extends TrackerReact(Component) {
 
     var stringOfMail = 'mailto:';
     return (
-      <div className="row">
-        
+      <div className="row rightAbit">
+
           {participants.map((singleEmail)=>{
             console.log(singleEmail)
             stringOfMail += singleEmail + ','
             return <SingleParticipant email={singleEmail} key={singleEmail} eventName={this.props.eventName}/>
           } )}
 
-          <a href={stringOfMail} className="btn">Mail All</a>
+          <a href={stringOfMail} className="btn rightAbitSgt">Mail All</a>
       </div>
     )
   }

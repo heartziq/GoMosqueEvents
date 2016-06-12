@@ -50,11 +50,11 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   	participantCard = <span></span>
 
 		{/* if needParticipants TRUE but NO participants (so far) */}
-		showParticipants = (event.participants) ? <span><Participants participants={event.participants} eventName={event.name} /></span> : <span>There are no participants currently</span>
+		showParticipants = (event.participants && event.participants.length >= 1) ? <span  className="rightAbit"><Participants participants={event.participants} eventName={event.name}/></span> : <span>There are no Participants currently</span>
 
 	{/* if needVolunteers TRUE but NO participants (so far) */}
 		numberVolunteers = (!event.volunteers) ? <span> 0 </span> : <span >{event.volunteers.length}</span>
-		showVolunteers = (event.volunteers) ? <span><Volunteers volunteers={event.volunteers} eventName={event.name}/></span> : <span>There are no volunteers currently</span>
+	showVolunteers = (event.volunteers && event.volunteers.length >= 1) ? <span><Volunteers volunteers={event.volunteers} eventName={event.name}/></span> : <span>There are no volunteers currently</span>
 
 
   	if(event.needParticipants){
@@ -64,8 +64,8 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
   			<div className="row">
       			<div className="col s12">
         			<div className="card-panel hoverable">
-								<p>Number of Participants: {numberParticipants}</p>
         				<h3> Participants</h3>
+									<p>Number of Participants: {numberParticipants}</p>
 
 						    {showParticipants}
         			</div>
@@ -84,8 +84,8 @@ export default class MosqueEventDetails extends TrackerReact(React.Component){
       			<div className="col s12 ">
 
         			<div className="card-panel hoverable">
-								<p>Number of Volunteers: {numberVolunteers}</p>
         				<h3> Volunteers</h3>
+									<p>Number of Volunteers: {numberVolunteers}</p>
                  {showVolunteers}
               </div>
       			</div>

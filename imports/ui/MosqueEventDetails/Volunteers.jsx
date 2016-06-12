@@ -38,14 +38,13 @@ export default class Volunteers extends TrackerReact(Component) {
     var stringOfMail = 'mailto:';
     return (
       <div className="row">
-        <h3>this volunteers</h3>
           {volunteers.map((singleEmail)=>{
             console.log(singleEmail)
             stringOfMail += singleEmail + ','
             return <SingleVolunteers email={singleEmail} key={singleEmail} eventName={this.props.eventName}/>
           } )}
 
-          <a href={stringOfMail} className="btn">Mail All</a>
+          <a href={stringOfMail} className="btn rightAbitSgt">Mail All</a>
       </div>
     )
   }
