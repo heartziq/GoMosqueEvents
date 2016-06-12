@@ -44,9 +44,11 @@ const Register = React.createClass({
     var options = {
       email: email,
       password: password,
+
       profile: {
         who: 'users',
-        name: name
+        name: name,
+        gender: e.target.elements.gender.value,
       }
     }
     //send request to server
@@ -71,6 +73,14 @@ const Register = React.createClass({
               <div className="input-field col s12">
                 <input id="name" type="text" className="validate" onChange={this.handleNameChange} value={this.state.name} />
                 <label htmlFor="name">Name</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <input name="gender" type="radio" id="m" value="m" ref="gender"/>
+                <label htmlFor="m">Male</label>
+                <input name="gender" type="radio" id="f" value="f" ref="gender"/>
+                <label htmlFor="f">Female</label>
               </div>
             </div>
             <div className="row">

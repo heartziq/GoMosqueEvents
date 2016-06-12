@@ -29,22 +29,27 @@ export default class EventsView extends TrackerReact(React.Component) {
 
     events() {
         var filterState = this.state.filter;
+        opGender = (Meteor.user().profile.gender === 'm') ? 'f':'m'
         console.log(filterState)
-        if (filterState === "all") 
-            events = Events.find().fetch()
-        else if (filterState === "participant") 
+        if (filterState === "all")
+            events = Events.find({hasExpired: { $ne: true }, gender: {$ne: opGender}}).fetch()
+        else if (filterState === "participant")
             events = Events.find({
                 needParticipants: true,
                 needVolunteers: {
                     $ne: true
-                }
+                },
+                hasExpired: { $ne: true },
+                gender: {$ne: opGender}
             }).fetch()
-        else 
+        else
             events = Events.find({
                 needVolunteers: true,
                 needParticipants: {
                     $ne: true
-                }
+                },
+                hasExpired: { $ne: true },
+                gender: {$ne: opGender}
             }).fetch()
 
             //console.log("e " + events )
@@ -55,13 +60,13 @@ export default class EventsView extends TrackerReact(React.Component) {
         console.log(Meteor.userId())
         events = this.events()
 
-        if (!events) 
+        if (!events)
             return <span>
                 loading
             </span>
 
             //console.log("events: " + events)
-        
+
         return (
             <div className="bottomGap">
                 <form onSubmit={this.handleFilter.bind(this)}>
