@@ -18,7 +18,7 @@ export default class Dashboard extends TrackerReact(Component){
     }
   }
   componentDidMount(){
-    document.title = "Quick Plate | Dashboard"
+    document.title = "GoMosque 2.0 | Dashboard"
   }
 
   handleFilter(e) {
