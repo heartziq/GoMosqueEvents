@@ -18,7 +18,7 @@ export default class Dashboard extends TrackerReact(Component){
     }
   }
   componentDidMount(){
-    document.title = "Quick Plate | Dashboard"
+    document.title = "GoMosque Events | Dashboard"
   }
 
   handleFilter(e) {
@@ -58,20 +58,27 @@ export default class Dashboard extends TrackerReact(Component){
       return (<p>Loading...</p>)
 
     return(
-      <div className="row">
+      <div className="row topGap">
         <form onSubmit={this.handleFilter.bind(this)}>
 
-            <div className="row">
-                <p>
-                    <input name="filterBy" type="radio" id="participant" value="participant" ref="filterBy"/>
-                    <label htmlFor="participant">Participating</label>
-                    <input name="filterBy" type="radio" id="volunteer" value="volunteer" ref="filterBy" defaultChecked/>
-                    <label htmlFor="volunteer">Volunteering</label>
-                    <input name="filterBy" type="radio" id="history" value="history" ref="filterBy"/>
-                    <label htmlFor="history">History</label>
-                    <button type="submit" className="btn">Filter</button>
-                </p>
-            </div>
+            <span className="header col s12 m6"><strong>My Events</strong></span>
+                <form className=" col s12 m6 topGapSmall" onSubmit={this.handleFilter.bind(this)}>
+
+                    <div className="row">
+
+                      <input name="filterBy" type="radio" id="participant" value="participant" ref="filterBy"/>
+                      <label htmlFor="participant">Participating</label>
+                      &nbsp;
+                      <input name="filterBy" type="radio" id="volunteer" value="volunteer" ref="filterBy" defaultChecked/>
+                      <label htmlFor="volunteer">Volunteering</label>
+                      &nbsp;
+                      <input name="filterBy" type="radio" id="history" value="history" ref="filterBy"/>
+                      <label htmlFor="history">History</label>
+                      <button type="submit" className="btn-flat blue-text "><strong>Filter</strong></button>
+
+                    </div>
+
+                </form>
 
         </form>
         {myEvents.map((singleEvent)=>{

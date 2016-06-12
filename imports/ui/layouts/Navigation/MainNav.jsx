@@ -32,8 +32,8 @@ const MainNav = React.createClass({
         <ul id="userDropdown1" className="dropdown-content">
           <li><a onClick={this.handleLogout}>Logout</a></li>
         </ul>
-        <div className="nav-wrapper gradient-navbar">
-          <a href={FlowRouter.path("index")} className="brand-logo">QuickPlate</a>
+        <div className="nav-wrapper gradient-navbar container">
+          <a href={FlowRouter.path("index")} className="brand-logo">GoMosque Events</a>
           <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
               <li><a href={FlowRouter.path("eventsView")}>Events</a></li>

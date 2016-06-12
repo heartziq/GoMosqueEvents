@@ -38,7 +38,7 @@ export default class EventDetails extends TrackerReact(React.Component){
 
       Meteor.call('participateUser', event._id, function(){
         console.log("SUCCESSS")
-        Materialize.toast('Participation RSVP Success!', 4000) 
+        Materialize.toast('Participation RSVP Success!', 4000)
 
       })
 
@@ -49,7 +49,7 @@ export default class EventDetails extends TrackerReact(React.Component){
     } else {
        Meteor.call('cancelParticipation', event._id, function(){
         console.log("SUCCESSS")
-        Materialize.toast('Participation Cancelled!', 4000) 
+        Materialize.toast('Participation Cancelled!', 4000)
 
       })
         this.setState({
@@ -69,7 +69,7 @@ export default class EventDetails extends TrackerReact(React.Component){
 
   		Meteor.call('volunteerUser', event._id, function(){
   			console.log("SUCCESSS")
-              Materialize.toast('Volunteer RSVP Success!', 4000) 
+              Materialize.toast('Volunteer RSVP Success!', 4000)
 
   		})
 
@@ -80,7 +80,7 @@ export default class EventDetails extends TrackerReact(React.Component){
     } else {
       Meteor.call('cancelVolunteer', event._id, function(){
         console.log("SUCCESSS")
-        Materialize.toast('Volunteer Cancelled!', 4000) 
+        Materialize.toast('Volunteer Cancelled!', 4000)
 
       })
         this.setState({
@@ -117,7 +117,7 @@ export default class EventDetails extends TrackerReact(React.Component){
     console.log(this.state.participate)
 
     participateBtn = this.state.participate ? <button className="btn blue darken-2 fullButton" onClick={this.handleParticipate.bind(this)}><i className="material-icons left">perm_identity</i>Participate</button> : <button className="btn grey darken-2 fullButton" onClick={this.handleParticipate.bind(this)}>Cancel Participation</button>
-    volunteerBtn = this.state.volunteer ? <button className="btn blue darken-2 fullButton" onClick={this.handleParticipate.bind(this)}><i className="material-icons left">assignment_indi</i>Volunteer</button> : <button className="btn grey darken-2 fullButton" onClick={this.handleVolunteer.bind(this)}>Cancel Volunteer</button>
+		volunteerBtn = this.state.volunteer ? <button className="btn blue darken-2 fullButton" onClick={this.handleVolunteer.bind(this)}><i className="material-icons left">assignment_indi</i>Volunteer</button> : <button className="btn grey darken-2 fullButton" onClick={this.handleVolunteer.bind(this)}>Cancel Volunteer</button>
 
     needParticipants = event.needParticipants ? <span>{participateBtn}</span> : <span></span>
     needVolunteers = event.needVolunteers ? <span>{volunteerBtn}</span> : <span></span>
@@ -131,13 +131,13 @@ export default class EventDetails extends TrackerReact(React.Component){
             <div className="col s12">
               <div className="card-panel hoverable">
                 <h2>{event.name}</h2>
-                <p>{event.theDate}, {event.start} - {event.end} </p> 
+                <p>{event.theDate}, {event.start} - {event.end} </p>
                 <p>{event.mosqueName} Mosque</p>
                  <p>{gender}</p>
                  <p>{event.description}</p>
 
                 <p className="topGap">{needParticipants}</p>
-                <p>{needVolunteers}</p> 
+                <p>{needVolunteers}</p>
 
               </div>
             </div>

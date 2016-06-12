@@ -14,13 +14,13 @@ export default class SingleEvent extends Component {
             <div className="card hoverable">
               <div className="card-content black-text">
                 <span className="card-title truncate"><strong>{singleEvent.name}</strong></span>
-                <p>{singleEvent.theDate}, {singleEvent.start} - {singleEvent.end} </p>
+                <p>{singleEvent.theDate}, {singleEvent.start} - {singleEvent.end} @ {singleEvent.mosqueName} Mosque </p>
                 <br/>
                 <p>{gender}</p>
                 <p>{needParticipants} &nbsp; {needVolunteers}</p>
               </div>
               <div className="card-action">
-                <a href={`/eventDetails/${singleEvent._id}`} className="green-text text-lighten-2">View Details</a>
+                <a href={`/eventDetails/${singleEvent._id}`} className="blue-text text-darken-2">View Details</a>
               </div>
             </div>
           </div>
