@@ -42,7 +42,7 @@ FlowRouter.triggers.enter([becauseAuthenticated], {only: ["home", "login", "regi
 FlowRouter.route('/', {
   action: function(){
     mount(Layout, {
-      content: () => <Home />
+      content: () => <Login />
   })
 },
 name: "home"

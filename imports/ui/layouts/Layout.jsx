@@ -2,7 +2,7 @@ import React from 'react';
 import Nav from './Navigation/Nav.jsx';
 
 const Layout = ({content}) => (
-  <div>
+  <div className="blue lighten-5 fullHeight">
     <Nav />
 
     <div className="container bottomGap">

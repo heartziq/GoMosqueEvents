@@ -63,24 +63,31 @@ export default class EventsView extends TrackerReact(React.Component) {
             //console.log("events: " + events)
         
         return (
-            <div className="bottomGap">
-                <form onSubmit={this.handleFilter.bind(this)}>
+            <div className="bottomGap topGap">
 
-                    <div className="row">
-                        <p>
-                            <input name="filterBy" type="radio" id="participant" value="participant" ref="filterBy"/>
-                            <label htmlFor="participant">Participant</label>
-                            <input name="filterBy" type="radio" id="volunteer" value="volunteer" ref="filterBy"/>
-                            <label htmlFor="volunteer">Volunteer</label>
-                            <input name="filterBy" type="radio" id="all" value="all" ref="filterBy" defaultChecked/>
-                            <label htmlFor="all">All</label>
-                            <button type="submit" className="btn">Filter</button>
-                        </p>
-                    </div>
+                <div className="row">
 
-                </form>
+                        <span className="header col s12 m6"><strong>Upcoming Events</strong></span>
+                            <form className=" col s12 m6 topGapSmall" onSubmit={this.handleFilter.bind(this)}>
 
-                <h1>Events</h1>
+                                <div className="row">
+
+                                        <input name="filterBy" type="radio" id="participant" value="participant" ref="filterBy"/>
+                                        <label htmlFor="participant">Participant</label>
+                                        &nbsp;
+                                        <input name="filterBy" type="radio" id="volunteer" value="volunteer" ref="filterBy"/>
+                                        <label htmlFor="volunteer">Volunteer</label>
+                                        &nbsp;
+                                        <input name="filterBy" type="radio" id="all" value="all" ref="filterBy" defaultChecked/>
+                                        <label htmlFor="all">All</label>
+                                        <button type="submit" className="btn-flat blue-text text-darken-2"><strong>Filter</strong></button>
+                                
+
+                                </div>
+
+                            </form>
+                </div>
+
                 <EventAll events={events}/>
             </div>
         )

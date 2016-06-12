@@ -66,31 +66,31 @@ const MosqueRegister = React.createClass({
   render(){
     return (
       <div className="row">
-        <div className="col s4 offset-s4">
-          <h2 className="header center">Register</h2>
+        <div className="col m4 offset-m4 s12 center">
+          <h2 className="header ">Register</h2>
           <form onSubmit={this.handleSubmit}>
-            <div className="row green darken-2">
-              <div className="input-field col s12">
+            <div className="row">
+              <div className="input-field col m12 s12 ">
                 <input id="name" type="text" className="validate" onChange={this.handleNameChange} value={this.state.name} />
                 <label htmlFor="name">Name</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col m12 s12 ">
                 <input id="email" type="email" className="validate" value={this.state.email} onChange={this.handleEmailChange} />
                 <label htmlFor="email" data-error="Error!">Email</label>
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s12">
+              <div className="input-field col m12 s12 ">
                 <input id="password" type="password" className="validate" value={this.state.password} onChange={this.handlePasswordChange}/>
                 <label htmlFor="password">Password</label>
               </div>
             </div>
 
             <div className="row">
-              <button className="btn waves-effect waves-light pull-right" type="submit" name="action">Sign Me Up!
-                <i className="material-icons right">send</i>
+              <button className="btn waves-effect waves-light green darken-2" type="submit" name="action">Sign Up
+                <i className="material-icons right ">send</i>
               </button>
             </div>
           </form>
