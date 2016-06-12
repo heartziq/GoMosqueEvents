@@ -32,7 +32,7 @@ function isAuthenticated(context, redirect){
 
 function becauseAuthenticated(context, redirect){
   if(Meteor.userId()){
-    redirect("dashboard");
+    redirect("eventsView");
   }
 }
 

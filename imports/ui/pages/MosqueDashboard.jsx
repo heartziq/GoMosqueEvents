@@ -40,6 +40,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
     return(
     	<div>
       		<h3>Upcoming Events</h3>
+          <p>You are not organising any events currently. Click <a href="/mosqueEventForm">here</a> to add an event </p>
       		<MosqueEventsAll events={events}/>
           <div className="fixed-action-btn containedFAB">
             <a className="btn-floating btn-large green darken-2" href="/mosqueEventForm">

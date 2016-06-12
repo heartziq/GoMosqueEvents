@@ -57,7 +57,7 @@ const Register = React.createClass({
         console.log("Register error")
       } else {
         console.log("Register Success")
-        FlowRouter.go("dashboard")
+        FlowRouter.go("eventsView")
       }
     })
     this.setState({name: '', email: '', password: ''});
@@ -76,7 +76,7 @@ const Register = React.createClass({
               </div>
             </div>
             <div className="row">
-              
+
               <div className="input-field-user col s12">
                 <input name="gender" type="radio" id="m" value="m" ref="gender"/>
                 <label htmlFor="m">Male</label>

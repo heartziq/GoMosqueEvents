@@ -27,7 +27,7 @@ const Login = React.createClass({
       } else {
         var back = Session.get("back")
         if(back == undefined || back == ""){
-          FlowRouter.go("dashboard")
+          FlowRouter.go("eventsView")
         } else {
           FlowRouter.go(Session.get("back"))
           Session.set("back", "");
