@@ -18,7 +18,7 @@ export default class Dashboard extends TrackerReact(Component){
     }
   }
   componentDidMount(){
-    document.title = "GoMosque Events | Dashboard"
+    document.title = "Mosque Events | Dashboard"
   }
 
   handleFilter(e) {
@@ -33,12 +33,15 @@ export default class Dashboard extends TrackerReact(Component){
 
       var userEmail = Meteor.user().emails[0].address;
 
+      //		events = Events.find({mosqueId: Meteor.userId(), hasExpired: { $ne: true }}, {sort: {createdAt: -1}}).fetch();
+
+
       if (filterState === "history")
-          events = Events.find({$and: [{$or: [{participants: userEmail},{volunteers: userEmail}]}, {hasExpired: true}]}).fetch()
+          events = Events.find({$and: [{$or: [{participants: userEmail},{volunteers: userEmail}]}, {hasExpired: true}]}, {sort: {createdAt: -1}}).fetch()
       else if (filterState === "participant")
-          events = Events.find({participants: userEmail, hasExpired: { $ne: true }}).fetch()
+          events = Events.find({participants: userEmail, hasExpired: { $ne: true }}, {sort: {createdAt: -1}}).fetch()
       else if (filterState === "volunteer")
-          events = Events.find({volunteers: userEmail, hasExpired: { $ne: true }}).fetch()
+          events = Events.find({volunteers: userEmail, hasExpired: { $ne: true }}, {sort: {createdAt: -1}}).fetch()
 
       return events
   }

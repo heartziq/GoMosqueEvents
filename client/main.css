@@ -66,14 +66,21 @@
 }
 
 .fullButton{
-  display: block; 
+  display: block;
   width: 100%;
+}
+
+.rightAbit{
+  margin-left: 28px
+}
+
+.rightAbitSgt{
+  margin-left: 15px
 }
 
 @media only screen and (min-width: 500px) {
     .containedFAB{
-      bottom: 45px; 
+      bottom: 45px;
       right: 170px;
     }
 }
-

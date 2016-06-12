@@ -22,7 +22,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 	}
 
 	events(){
-		events = Events.find({mosqueId: Meteor.userId(), hasExpired: { $ne: true } }).fetch();
+		events = Events.find({mosqueId: Meteor.userId(), hasExpired: { $ne: true }}, {sort: {createdAt: -1}}).fetch();
 		console.log("e " + events )
 		return events
 	}

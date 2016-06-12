@@ -6,7 +6,7 @@ export default class SingleVolunteers extends Component {
 
     return (
       <div className="row">
-        <a href={`mailto:${this.props.email}?Subject=${this.props.eventName}`}>{this.props.email}</a>
+        <a href={`mailto:${this.props.email}?Subject=${this.props.eventName}`} className="rightAbit">{this.props.email}</a>
 
       </div>
     )

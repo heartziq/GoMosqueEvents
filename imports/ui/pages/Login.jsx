@@ -6,7 +6,7 @@ const Login = React.createClass({
     return {email: '', password: ''};
   },
   componentDidMount: function(){
-    document.title = "QuickPlate | Login"
+    document.title = "GoMosque 2.0 | Login"
   },
   handleEmailChange: function(e){
     this.setState({email: e.target.value});
