@@ -6,7 +6,7 @@ const Login = React.createClass({
     return {email: '', password: ''};
   },
   componentDidMount: function(){
-    document.title = "GoMosque 2.0 | Login"
+    document.title = "Mosque Events | Login"
   },
   handleEmailChange: function(e){
     this.setState({email: e.target.value});
@@ -27,7 +27,7 @@ const Login = React.createClass({
       } else {
         var back = Session.get("back")
         if(back == undefined || back == ""){
-          FlowRouter.go("eventsView")
+          FlowRouter.go("dashboard")
         } else {
           FlowRouter.go(Session.get("back"))
           Session.set("back", "");

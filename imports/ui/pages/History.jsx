@@ -8,7 +8,7 @@ import MosqueEventsAll from '../MosqueDashboard/MosqueEventsAll.jsx'
 export default class MosqueDashboard extends TrackerReact(React.Component){
 
   componentDidMount(){
-    document.title = "GoMosque 2.0 | MY History"
+    document.title = "Mosque Events | MY History"
   }
 
   constructor(){

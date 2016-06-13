@@ -8,7 +8,7 @@ import EventAll from '../EventsView/EventAll.jsx'
 export default class EventsView extends TrackerReact(React.Component) {
 
     componentDidMount() {
-        document.title = "GoMosque 2.0 | Events"
+        document.title = "Mosque Events | Events"
     }
     constructor() {
         super();

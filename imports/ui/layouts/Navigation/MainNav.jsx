@@ -25,6 +25,7 @@ const MainNav = React.createClass({
   render(){
     console.log(Meteor.user())
     return(
+      <div class="navbar-fixed">
       <nav className="blue darken-2">
         <ul id="userDropdown" className="dropdown-content">
           <li><a onClick={this.handleLogout}>Logout</a></li>
@@ -47,7 +48,7 @@ const MainNav = React.createClass({
           </ul>
         </div>
       </nav>
-
+      </div>
     )
   }
 });

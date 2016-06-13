@@ -8,7 +8,7 @@ import MosqueEventsAll from '../MosqueDashboard/MosqueEventsAll.jsx'
 export default class MosqueDashboard extends TrackerReact(React.Component){
 
   componentDidMount(){
-    document.title = "GoMosque 2.0 | MosqueDashboard"
+    document.title = "Mosque Events | MosqueDashboard"
   }
 
   constructor(){
@@ -22,7 +22,7 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 	}
 
 	events(){
-		events = Events.find({mosqueId: Meteor.userId(), hasExpired: { $ne: true }}, {sort: {createdAt: -1}}).fetch();
+		events = Events.find({mosqueId: Meteor.userId(), hasExpired: { $ne: true } }).fetch();
 		console.log("e " + events )
 		return events
 	}
@@ -37,13 +37,9 @@ export default class MosqueDashboard extends TrackerReact(React.Component){
 
   	console.log("events: " + events)
 
-    var noEvent = (events.length < 1) ? <p>You are not organising any events currently. Click <a href="/mosqueEventForm">here</a> to add an event </p> : <span></span>
-
     return(
     	<div>
       		<h3>Upcoming Events</h3>
-
-          {noEvent}
       		<MosqueEventsAll events={events}/>
           <div className="fixed-action-btn containedFAB">
             <a className="btn-floating btn-large green darken-2" href="/mosqueEventForm">

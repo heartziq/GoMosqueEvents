@@ -25,6 +25,7 @@ const MosqueMainNav = React.createClass({
   render(){
     console.log(Meteor.user())
     return(
+      <div class="navbar-fixed">
       <nav className="green darken-2">
         <div className="container">
           <ul id="userDropdown" className="dropdown-content">
@@ -49,6 +50,7 @@ const MosqueMainNav = React.createClass({
           </div>
         </div>
       </nav>
+      </div>
     )
   }
 });
