@@ -10,7 +10,7 @@ const Nav = React.createClass({
   },
   render(){
     return(
-      <div class="navbar-fixed">
+      <div className="navbar-fixed">
       <nav className="blue darken-2">
         <div className="container">
           <div className="nav-wrapper gradient-navbar">
